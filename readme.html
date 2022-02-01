@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.0">
+    <meta name="project" content="tomba v0.1.0">
+
+    <title><img src="https://app.tomba.io/logo.svg" alt="Tomba" width="25"/> Tomba Email Finder elixir Client Library — tomba v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a816d167216329cc463d.css" />
+
+    <script src="dist/sidebar_items-e6f71981f9.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-80aa23c1d96b6dc3c064.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href=" https://tomba.io/" class="sidebar-projectName" translate="no">
+tomba
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/tomba-io/elixir/blob/main/README.md#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span><a href="https://tomba.io/">&lt;img src=&quot;https://app.tomba.io/logo.svg&quot; alt=&quot;Tomba&quot; width=&quot;25&quot;/&gt;</a> Tomba Email Finder elixir Client Library</span>
+</h1>
+
+<p>This is the official elixir client library for the <a href="https://tomba.io">Tomba.io</a> Email Finder API,
+allowing you to:</p><ul><li><a href="https://tomba.io/domain-search">Domain Search</a> (Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.)</li><li><a href="https://tomba.io/email-finder">Email Finder</a> (This API endpoint generates or retrieves the most likely email address from a domain name, a first name and a last name..)</li><li><a href="https://tomba.io/email-verifier">Email Verifier</a> (checks the deliverability of a given email address, verifies if it has been found in our database, and returns their sources.)</li><li><a href="https://developer.tomba.io/#email-sources">Email Sources</a> (Find email address source somewhere on the web .)</li><li><a href="https://developer.tomba.io/#autocomplete">Company Domain autocomplete</a> (Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.)</li></ul><h2 id="features" class="section-heading">
+  <a href="#features" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Features
+</h2>
+<ul><li>Collect publicly available emails online (Html, execute JavaScript,files,).</li><li>No duplicate email    No duplicate domain .</li><li>No webmail like Gmail,Outlook and the others.</li><li>We detect 15 type of hashes and remove them.</li><li>No disposable and temporary email address.</li></ul><h2 id="getting-started" class="section-heading">
+  <a href="#getting-started" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Getting Started
+</h2>
+<p>You'll need an Tomba API access token, which you can get by signing up for a free account at <a href="https://app.tomba.io/auth/register">https://app.tomba.io/auth/register</a></p><p>The free plan is limited to 25 search request and 50 verification a month,  To enable all the data fields and additional request volumes see <a href="https://tomba.io/pricing">https://tomba.io/pricing</a>.</p><h2 id="installation" class="section-heading">
+  <a href="#installation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Installation
+</h2>
+<p>the package can be installed by adding <code class="inline">tomba</code> to your list of dependencies in <code class="inline">mix.exs</code>:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">deps</span><span class="w"> </span><span class="k" data-group-id="8850555098-1">do</span><span class="w">
+  </span><span class="p" data-group-id="8850555098-2">[</span><span class="w">
+    </span><span class="p" data-group-id="8850555098-3">{</span><span class="ss">:tomba</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;~&gt; 0.1.0&quot;</span><span class="p" data-group-id="8850555098-3">}</span><span class="w">
+  </span><span class="p" data-group-id="8850555098-2">]</span><span class="w">
+</span><span class="k" data-group-id="8850555098-1">end</span></code></pre><p>And fetch your project's dependencies:</p><pre><code class="makeup bash" translate="no"><span class="">mix deps.get
+</span></code></pre><h2 id="usage" class="section-heading">
+  <a href="#usage" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Usage
+</h2>
+<h3 id="domain-search" class="section-heading">
+  <a href="#domain-search" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Domain Search
+</h3>
+<p>get email addresses found on the internet.</p><pre><code class="makeup elixir" translate="no"><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="2237266540-1">(</span><span class="s">&quot;ta_xxxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ts_xxxx&quot;</span><span class="p" data-group-id="2237266540-1">)</span><span class="w">
+</span><span class="p" data-group-id="2237266540-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p" data-group-id="2237266540-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">domain_search</span><span class="p" data-group-id="2237266540-3">(</span><span class="nc">Tomba</span><span class="p">,</span><span class="s">&quot;tomba.io&quot;</span><span class="p" data-group-id="2237266540-3">)</span></code></pre><h3 id="email-finder" class="section-heading">
+  <a href="#email-finder" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Email Finder
+</h3>
+<p>Find the verified email address of any professional.</p><pre><code class="makeup elixir" translate="no"><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="4037656378-1">(</span><span class="s">&quot;ta_xxxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ts_xxxx&quot;</span><span class="p" data-group-id="4037656378-1">)</span><span class="w">
+</span><span class="p" data-group-id="4037656378-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p" data-group-id="4037656378-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">email_finder</span><span class="p" data-group-id="4037656378-3">(</span><span class="nc">Tomba</span><span class="p">,</span><span class="s">&quot;stripe.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lname&quot;</span><span class="p" data-group-id="4037656378-3">)</span></code></pre><h3 id="email-verifier" class="section-heading">
+  <a href="#email-verifier" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Email Verifier
+</h3>
+<p>Verify the validity of any professional email address with the most complete email checker.</p><pre><code class="makeup elixir" translate="no"><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="2205867410-1">(</span><span class="s">&quot;ta_xxxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ts_xxxx&quot;</span><span class="p" data-group-id="2205867410-1">)</span><span class="w">
+</span><span class="p" data-group-id="2205867410-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p" data-group-id="2205867410-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tomba</span><span class="o">.</span><span class="n">email_verifier</span><span class="p" data-group-id="2205867410-3">(</span><span class="nc">Tomba</span><span class="p">,</span><span class="s">&quot;b.mohamed@tomba.io&quot;</span><span class="p" data-group-id="2205867410-3">)</span></code></pre><h2 id="documentation" class="section-heading">
+  <a href="#documentation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Documentation
+</h2>
+<p>See the <a href="https://developer.tomba.io/">official documentation</a>.</p><h3 id="other-libraries" class="section-heading">
+  <a href="#other-libraries" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Other Libraries
+</h3>
+<p>There are official Tomba Email Finder client libraries available for many languages including PHP, Python, Go, Java, Ruby, and many popular frameworks such as Django, Rails and Laravel. There are also many third party libraries and integrations available for our API.</p><p><a href="https://developer.tomba.io/#introduction-libraries">https://developer.tomba.io/#introduction-libraries</a></p><h3 id="about-tomba" class="section-heading">
+  <a href="#about-tomba" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  About Tomba
+</h3>
+<p>Founded in 2020, Tomba prides itself on being the most reliable, accurate, and in-depth source of Email address data available anywhere. We process terabytes of data to produce our Email finder API, company.</p><p><a href="https://tomba.io/"><img src="https://avatars.githubusercontent.com/u/67979591?s=200&v=4" alt="image"/></a></p><h2 id="contribution" class="section-heading">
+  <a href="#contribution" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Contribution
+</h2>
+<ol><li>Fork it (<a href="https://github.com/tomba-io/elixir/fork">https://github.com/tomba-io/elixir/fork</a>)</li><li>Create your feature branch (<code class="inline">git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code class="inline">git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code class="inline">git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol><h2 id="license" class="section-heading">
+  <a href="#license" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  License
+</h2>
+<p>Please see the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 license</a> file for more information.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+API Reference
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/tomba/0.1.0" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/tomba/0.1.0" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/tomba/0.1.0/show/README.md">(current file)</a>
+
+            </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.0) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

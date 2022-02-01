@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.0">
+    <meta name="project" content="tomba v0.1.0">
+
+    <title>Tomba — tomba v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a816d167216329cc463d.css" />
+
+    <script src="dist/sidebar_items-e6f71981f9.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-80aa23c1d96b6dc3c064.js"></script>
+
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href=" https://tomba.io/" class="sidebar-projectName" translate="no">
+tomba
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span translate="no">Tomba</span> 
+  <small class="app-vsn" translate="no">(tomba v0.1.0)</small>
+
+</h1>
+
+
+  <section id="moduledoc">
+<p>Documentation for <a href="Tomba.html#content"><code class="inline">Tomba</code></a>.</p><p>Tomba: Tomba.io is an Email Finder for B2B sales and email marketing
+This is the Lua client library for the <a href="https://tomba.io">Email Finder</a> API.
+It allows you to lookup the following details :</p><ul><li><a href="https://tomba.io/domain-search">Domain Search</a> (Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.)</li><li><a href="https://tomba.io/email-finder">Email Finder</a> (This API endpoint generates or retrieves the most likely email address from a domain name, a first name and a last name..)</li><li><a href="https://tomba.io/email-verifier">Email Verifier</a> (checks the deliverability of a given email address, verifies if it has been found in our database, and returns their sources.)</li><li><a href="https://developer.tomba.io/#email-sources">Email Sources</a> (Find email address source somewhere on the web .)</li><li><a href="https://developer.tomba.io/#autocomplete">Company Domain autocomplete</a> (Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.)</li></ul>
+  </section>
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
+
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#t:http_opts/0" translate="no">http_opts()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>List of options to all request functions.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#t:http_result/0" translate="no">http_result()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Result returned from <a href="#request/3"><code class="inline">request/3</code></a>, <a href="#get/2"><code class="inline">get/2</code></a>, <a href="#post/2"><code class="inline">post/2</code></a>, <a href="#put/2"><code class="inline">put/2</code></a>, etc.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#t:http_result_bang/0" translate="no">http_result_bang()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Result returned from <a href="#request!/3"><code class="inline">request!/3</code></a>, <a href="#get!/2"><code class="inline">get!/2</code></a>, <a href="#post!/2"><code class="inline">post!/2</code></a>, <a href="#put!/2"><code class="inline">put!/2</code></a>, etc.</p></div>
+
+      </div>
+
+  </div>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#account/1" translate="no">account(this)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Returns information about the current account.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#account_path/0" translate="no">account_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#autocomplete/2" translate="no">autocomplete(this, query)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#autocomplete_path/0" translate="no">autocomplete_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#call/3" translate="no">call(this, path, params)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>call to server</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#count/2" translate="no">count(this, domain)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Returns total email addresses we have for one domain.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#count_path/0" translate="no">count_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#default_base_url/0" translate="no">default_base_url()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#delete/2" translate="no">delete(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:delete, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#delete!/2" translate="no">delete!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:delete, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#domain_search/2" translate="no">domain_search(this, domain)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#email_finder/4" translate="no">email_finder(this, domain, fname, lname)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Generates or retrieves the most likely email address from a domain name, a first name and a last name.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#email_sources/2" translate="no">email_sources(this, email)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Find email address source somewhere on the web.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#email_verifier/2" translate="no">email_verifier(this, email)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Verify the deliverability of an email address.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#finder_path/0" translate="no">finder_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#get/2" translate="no">get(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:get, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#get!/2" translate="no">get!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:get, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#handle_response/1" translate="no">handle_response(response)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#head/2" translate="no">head(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:head, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#head!/2" translate="no">head!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:head, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#is_redirect/1" translate="no">is_redirect(response)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#logs/1" translate="no">logs(this)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Returns a your last 1,000 requests you made during the last 3 months.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#logs_path/0" translate="no">logs_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#new/2" translate="no">new(key, secret)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Tomba Constructor</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#options/2" translate="no">options(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:options, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#options!/2" translate="no">options!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:options, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#patch/2" translate="no">patch(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:patch, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#patch!/2" translate="no">patch!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:patch, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#post/2" translate="no">post(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:post, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#post!/2" translate="no">post!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:post, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_options/1" translate="no">process_options(options)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_request_body/1" translate="no">process_request_body(body)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_request_headers/1" translate="no">process_request_headers(headers)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_request_headers/2" translate="no">process_request_headers(headers, body)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_request_headers/3" translate="no">process_request_headers(headers, body, options)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_response_body/1" translate="no">process_response_body(body)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_response_body/2" translate="no">process_response_body(headers, body)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_response_chunk/1" translate="no">process_response_chunk(body)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_response_headers/1" translate="no">process_response_headers(headers)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_response_location/1" translate="no">process_response_location(response)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_status_code/1" translate="no">process_status_code(status_code)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_url/1" translate="no">process_url(url)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#process_url/2" translate="no">process_url(url, options)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#put/2" translate="no">put(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request(:put, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#put!/2" translate="no">put!(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>A shortcut for <code class="inline">request!(:put, url, options)</code>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#redirect_method/2" translate="no">redirect_method(response, method)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#request/3" translate="no">request(method, url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Sends an HTTP request.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#request/5" translate="no">request(method, url, body, headers, options)</a>
+
+            <span class="deprecated" title="Use request/3 instead">deprecated</span>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#request!/3" translate="no">request!(method, url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Like <a href="#request/3"><code class="inline">request/3</code></a>, but raises  <a href="https://hexdocs.pm/httpotion/3.1.3/HTTPotion.HTTPError.html"><code class="inline">HTTPotion.HTTPError</code></a> if failed.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#request_direct/6" translate="no">request_direct(conn_pid, method, url, body \\ &quot;&quot;, headers \\ [], options \\ [])</a>
+
+            <span class="deprecated" title="Use request/3 with 'direct' option instead">deprecated</span>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#response_ok/1" translate="no">response_ok(response)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#search_path/0" translate="no">search_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#sources_path/0" translate="no">sources_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#spawn_link_worker_process/2" translate="no">spawn_link_worker_process(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Starts a linked worker process for use with the <code class="inline">direct</code> option.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#spawn_worker_process/2" translate="no">spawn_worker_process(url, options \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Starts a worker process for use with the <code class="inline">direct</code> option.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#start/0" translate="no">start()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Ensures that HTTPotion and its dependencies are started.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#status/2" translate="no">status(this, domain)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Returns domain status if is webmail or disposable.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#status_path/0" translate="no">status_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#stop_worker_process/1" translate="no">stop_worker_process(pid)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Stops a worker process started with <a href="#spawn_worker_process/2"><code class="inline">spawn_worker_process/2</code></a> or <a href="#spawn_link_worker_process/2"><code class="inline">spawn_link_worker_process/2</code></a>.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#transformer/4" translate="no">transformer(target, method, url, options)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#usage/1" translate="no">usage(this)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Check your monthly requests.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#usage_path/0" translate="no">usage_path()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#verifier_path/0" translate="no">verifier_path()</a>
+
+        </div>
+
+      </div>
+
+  </div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Types
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:http_opts/0">
+
+  <div class="detail-header">
+    <a href="#t:http_opts/0" class="detail-link" title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">http_opts()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">http_opts() :: [
+  body: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">charlist</a>(),
+  headers: [{<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>() | <a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>()}],
+  query: %{optional(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>()) =&gt; <a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>()},
+  timeout: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">timeout</a>(),
+  basic_auth: {<a href="https://hexdocs.pm/elixir/List.Chars.html#t:t/0">List.Chars.t</a>(), <a href="https://hexdocs.pm/elixir/List.Chars.html#t:t/0">List.Chars.t</a>()},
+  stream_to: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">port</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>() | {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">node</a>()},
+  direct: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">port</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>() | {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">node</a>()},
+  ibrowse: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>(),
+  auto_sni: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
+  follow_redirects: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()
+]</pre>
+
+      </div>
+
+<p>List of options to all request functions.</p><ul><li><code class="inline">body</code> - request body</li><li><code class="inline">headers</code> - HTTP headers (e.g. <code class="inline">[&quot;Accept&quot;: &quot;application/json&quot;]</code>)</li><li><code class="inline">query</code> - URL query string (e.g. <code class="inline">%{page: 1}</code>)</li><li><code class="inline">timeout</code> - timeout in milliseconds</li><li><code class="inline">basic_auth</code> - basic auth credentials (e.g. <code class="inline">{&quot;user&quot;, &quot;password&quot;}</code>)</li><li><code class="inline">stream_to</code> - if you want to make an async request, reference to the process</li><li><code class="inline">direct</code> - if you want to use ibrowse's direct feature, reference to<pre><code class="makeup elixir" translate="no"><span class="w">       </span><span class="n">the</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="n">spawned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="err">`</span><span class="n">spawn_worker_process</span><span class="o">/</span><span class="mi">2</span><span class="err">`</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">`</span><span class="n">spawn_link_worker_process</span><span class="o">/</span><span class="mi">2</span><span class="err">`</span></code></pre></li><li><code class="inline">ibrowse</code> - options for ibrowse</li><li><code class="inline">auto_sni</code> - if true and the URL is https, configures the <code class="inline">server_name_indication</code> ibrowse/ssl option<pre><code class="makeup elixir" translate="no"><span class="w">         </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requestedURL</span></code></pre></li><li><code class="inline">follow_redirects</code> - if true and a response is a redirect, re-requests with <code class="inline">header[:Location]</code></li></ul>
+  </section>
+</section>
+<section class="detail" id="t:http_result/0">
+
+  <div class="detail-header">
+    <a href="#t:http_result/0" class="detail-link" title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">http_result()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">http_result() ::
+  <a href="https://hexdocs.pm/httpotion/3.1.3/HTTPotion.Response.html#t:t/0">HTTPotion.Response.t</a>()
+  | %HTTPotion.AsyncResponse{id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}
+  | %HTTPotion.ErrorResponse{message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Result returned from <a href="#request/3"><code class="inline">request/3</code></a>, <a href="#get/2"><code class="inline">get/2</code></a>, <a href="#post/2"><code class="inline">post/2</code></a>, <a href="#put/2"><code class="inline">put/2</code></a>, etc.</p>
+  </section>
+</section>
+<section class="detail" id="t:http_result_bang/0">
+
+  <div class="detail-header">
+    <a href="#t:http_result_bang/0" class="detail-link" title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">http_result_bang()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">http_result_bang() ::
+  <a href="https://hexdocs.pm/httpotion/3.1.3/HTTPotion.Response.html#t:t/0">HTTPotion.Response.t</a>() | %HTTPotion.AsyncResponse{id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Result returned from <a href="#request!/3"><code class="inline">request!/3</code></a>, <a href="#get!/2"><code class="inline">get!/2</code></a>, <a href="#post!/2"><code class="inline">post!/2</code></a>, <a href="#put!/2"><code class="inline">put!/2</code></a>, etc.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Functions
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="account/1">
+
+  <div class="detail-header">
+    <a href="#account/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">account(this)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L147" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns information about the current account.</p><h2 id="account/1-parameters" class="section-heading">
+  <a href="#account/1-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.account(Tomba)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="account_path/0">
+
+  <div class="detail-header">
+    <a href="#account_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">account_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L29" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="autocomplete/2">
+
+  <div class="detail-header">
+    <a href="#autocomplete/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">autocomplete(this, query)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L226" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.</p><h2 id="autocomplete/2-parameters" class="section-heading">
+  <a href="#autocomplete/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">query</code>  - A string name company or website.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.autocomplete(Tomba,&quot;google&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="autocomplete_path/0">
+
+  <div class="detail-header">
+    <a href="#autocomplete_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">autocomplete_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L83" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="call/3">
+
+  <div class="detail-header">
+    <a href="#call/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">call(this, path, params)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L116" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>call to server</p><h2 id="call/3-parameters" class="section-heading">
+  <a href="#call/3-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">path</code>  - A string specific path.</li><li><code class="inline">params</code>- query params</li></ul>
+  </section>
+</section>
+<section class="detail" id="count/2">
+
+  <div class="detail-header">
+    <a href="#count/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">count(this, domain)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L186" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns total email addresses we have for one domain.</p><h2 id="count/2-parameters" class="section-heading">
+  <a href="#count/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">domain</code>  - A string specific domain.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.count(Tomba,&quot;tomba.io&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="count_path/0">
+
+  <div class="detail-header">
+    <a href="#count_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">count_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L71" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="default_base_url/0">
+
+  <div class="detail-header">
+    <a href="#default_base_url/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">default_base_url()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L23" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="delete/2">
+
+    <span id="delete/1"></span>
+
+  <div class="detail-header">
+    <a href="#delete/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">delete(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">delete(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:delete, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="delete!/2">
+
+    <span id="delete!/1"></span>
+
+  <div class="detail-header">
+    <a href="#delete!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">delete!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">delete!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:delete, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="domain_search/2">
+
+  <div class="detail-header">
+    <a href="#domain_search/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">domain_search(this, domain)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L166" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.</p><h2 id="domain_search/2-parameters" class="section-heading">
+  <a href="#domain_search/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">domain</code>  - A string specific domain.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.domain_search(Tomba,&quot;tomba.io&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="email_finder/4">
+
+  <div class="detail-header">
+    <a href="#email_finder/4" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">email_finder(this, domain, fname, lname)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L247" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Generates or retrieves the most likely email address from a domain name, a first name and a last name.</p><h2 id="email_finder/4-parameters" class="section-heading">
+  <a href="#email_finder/4-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">domain</code> -   A string domain name of the company, used for emails. For example, &quot;tomba.com&quot;.</li><li><code class="inline">fname</code>  -  A string The person's first name. It doesn't need to be in lowercase.</li><li><code class="inline">lname</code>  -  A string The person's last name. It doesn't need to be in lowercase.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.email_finder(Tomba,&quot;stripe.com&quot;, &quot;fname&quot;, &quot;lname&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="email_sources/2">
+
+  <div class="detail-header">
+    <a href="#email_sources/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">email_sources(this, email)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L286" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Find email address source somewhere on the web.</p><h2 id="email_sources/2-parameters" class="section-heading">
+  <a href="#email_sources/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>   - Tomba</li><li><code class="inline">email</code>  - A string email address you want to find sources.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.email_sources(Tomba,&quot;b.mohamed@tomba.io&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="email_verifier/2">
+
+  <div class="detail-header">
+    <a href="#email_verifier/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">email_verifier(this, email)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L267" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Verify the deliverability of an email address.</p><h2 id="email_verifier/2-parameters" class="section-heading">
+  <a href="#email_verifier/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>   - Tomba</li><li><code class="inline">email</code>  - A string email address you want to verify.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.email_verifier(Tomba,&quot;b.mohamed@tomba.io&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="finder_path/0">
+
+  <div class="detail-header">
+    <a href="#finder_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">finder_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L53" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="get/2">
+
+    <span id="get/1"></span>
+
+  <div class="detail-header">
+    <a href="#get/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">get(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">get(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:get, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="get!/2">
+
+    <span id="get!/1"></span>
+
+  <div class="detail-header">
+    <a href="#get!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">get!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">get!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:get, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="handle_response/1">
+
+  <div class="detail-header">
+    <a href="#handle_response/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">handle_response(response)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="head/2">
+
+    <span id="head/1"></span>
+
+  <div class="detail-header">
+    <a href="#head/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">head(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">head(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:head, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="head!/2">
+
+    <span id="head!/1"></span>
+
+  <div class="detail-header">
+    <a href="#head!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">head!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">head!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:head, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="is_redirect/1">
+
+  <div class="detail-header">
+    <a href="#is_redirect/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_redirect(response)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="logs/1">
+
+  <div class="detail-header">
+    <a href="#logs/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">logs(this)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L322" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns a your last 1,000 requests you made during the last 3 months.</p><h2 id="logs/1-parameters" class="section-heading">
+  <a href="#logs/1-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.logs(Tomba)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="logs_path/0">
+
+  <div class="detail-header">
+    <a href="#logs_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">logs_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L41" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="new/2">
+
+  <div class="detail-header">
+    <a href="#new/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">new(key, secret)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L97" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Tomba Constructor</p><h2 id="new/2-parameters" class="section-heading">
+  <a href="#new/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">key</code> -  Tomba api key.</li><li><code class="inline">secret</code> - Tomba secret key.</li></ul>
+  </section>
+</section>
+<section class="detail" id="options/2">
+
+    <span id="options/1"></span>
+
+  <div class="detail-header">
+    <a href="#options/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">options(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">options(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:options, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="options!/2">
+
+    <span id="options!/1"></span>
+
+  <div class="detail-header">
+    <a href="#options!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">options!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">options!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:options, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="patch/2">
+
+    <span id="patch/1"></span>
+
+  <div class="detail-header">
+    <a href="#patch/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">patch(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">patch(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:patch, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="patch!/2">
+
+    <span id="patch!/1"></span>
+
+  <div class="detail-header">
+    <a href="#patch!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">patch!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">patch!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:patch, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="post/2">
+
+    <span id="post/1"></span>
+
+  <div class="detail-header">
+    <a href="#post/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">post(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">post(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:post, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="post!/2">
+
+    <span id="post!/1"></span>
+
+  <div class="detail-header">
+    <a href="#post!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">post!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">post!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:post, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="process_options/1">
+
+  <div class="detail-header">
+    <a href="#process_options/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_options(options)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_request_body/1">
+
+  <div class="detail-header">
+    <a href="#process_request_body/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_request_body(body)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_request_headers/1">
+
+  <div class="detail-header">
+    <a href="#process_request_headers/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_request_headers(headers)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_request_headers/2">
+
+  <div class="detail-header">
+    <a href="#process_request_headers/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_request_headers(headers, body)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_request_headers/3">
+
+  <div class="detail-header">
+    <a href="#process_request_headers/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_request_headers(headers, body, options)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_response_body/1">
+
+  <div class="detail-header">
+    <a href="#process_response_body/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_response_body(body)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_response_body/2">
+
+  <div class="detail-header">
+    <a href="#process_response_body/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_response_body(headers, body)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_response_chunk/1">
+
+  <div class="detail-header">
+    <a href="#process_response_chunk/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_response_chunk(body)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_response_headers/1">
+
+  <div class="detail-header">
+    <a href="#process_response_headers/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_response_headers(headers)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_response_location/1">
+
+  <div class="detail-header">
+    <a href="#process_response_location/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_response_location(response)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_status_code/1">
+
+  <div class="detail-header">
+    <a href="#process_status_code/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_status_code(status_code)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_url/1">
+
+  <div class="detail-header">
+    <a href="#process_url/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_url(url)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="process_url/2">
+
+  <div class="detail-header">
+    <a href="#process_url/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">process_url(url, options)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="put/2">
+
+    <span id="put/1"></span>
+
+  <div class="detail-header">
+    <a href="#put/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">put(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">put(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request(:put, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="put!/2">
+
+    <span id="put!/1"></span>
+
+  <div class="detail-header">
+    <a href="#put!/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">put!(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">put!(<a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>A shortcut for <code class="inline">request!(:put, url, options)</code>.</p>
+  </section>
+</section>
+<section class="detail" id="redirect_method/2">
+
+  <div class="detail-header">
+    <a href="#redirect_method/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">redirect_method(response, method)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="request/3">
+
+    <span id="request/2"></span>
+
+  <div class="detail-header">
+    <a href="#request/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request(method, url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">request(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result/0">http_result</a>()</pre>
+
+      </div>
+
+<p>Sends an HTTP request.</p><p>See the type documentation of <code class="inline">http_opts</code> for a description of options.</p>
+  </section>
+</section>
+<section class="detail" id="request/5">
+
+  <div class="detail-header">
+    <a href="#request/5" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request(method, url, body, headers, options)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+    <div class="deprecated">
+      This function is deprecated. Use request/3 instead.
+    </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="request!/3">
+
+    <span id="request!/2"></span>
+
+  <div class="detail-header">
+    <a href="#request!/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request!(method, url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">request!(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/String.Chars.html#t:t/0">String.Chars.t</a>(), <a href="#t:http_opts/0">http_opts</a>()) :: <a href="#t:http_result_bang/0">http_result_bang</a>()</pre>
+
+      </div>
+
+<p>Like <a href="#request/3"><code class="inline">request/3</code></a>, but raises  <a href="https://hexdocs.pm/httpotion/3.1.3/HTTPotion.HTTPError.html"><code class="inline">HTTPotion.HTTPError</code></a> if failed.</p>
+  </section>
+</section>
+<section class="detail" id="request_direct/6">
+
+    <span id="request_direct/3"></span>
+
+    <span id="request_direct/4"></span>
+
+    <span id="request_direct/5"></span>
+
+  <div class="detail-header">
+    <a href="#request_direct/6" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request_direct(conn_pid, method, url, body \\ &quot;&quot;, headers \\ [], options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+    <div class="deprecated">
+      This function is deprecated. Use request/3 with 'direct' option instead.
+    </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="response_ok/1">
+
+  <div class="detail-header">
+    <a href="#response_ok/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">response_ok(response)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="search_path/0">
+
+  <div class="detail-header">
+    <a href="#search_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">search_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L47" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="sources_path/0">
+
+  <div class="detail-header">
+    <a href="#sources_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sources_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L65" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="spawn_link_worker_process/2">
+
+    <span id="spawn_link_worker_process/1"></span>
+
+  <div class="detail-header">
+    <a href="#spawn_link_worker_process/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">spawn_link_worker_process(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Starts a linked worker process for use with the <code class="inline">direct</code> option.</p>
+  </section>
+</section>
+<section class="detail" id="spawn_worker_process/2">
+
+    <span id="spawn_worker_process/1"></span>
+
+  <div class="detail-header">
+    <a href="#spawn_worker_process/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">spawn_worker_process(url, options \\ [])</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Starts a worker process for use with the <code class="inline">direct</code> option.</p>
+  </section>
+</section>
+<section class="detail" id="start/0">
+
+  <div class="detail-header">
+    <a href="#start/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">start()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Ensures that HTTPotion and its dependencies are started.</p>
+  </section>
+</section>
+<section class="detail" id="status/2">
+
+  <div class="detail-header">
+    <a href="#status/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">status(this, domain)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L206" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns domain status if is webmail or disposable.</p><h2 id="status/2-parameters" class="section-heading">
+  <a href="#status/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li><li><code class="inline">domain</code>  - A string specific path.</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.status(Tomba,&quot;gmail.com&quot;)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="status_path/0">
+
+  <div class="detail-header">
+    <a href="#status_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">status_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L77" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="stop_worker_process/1">
+
+  <div class="detail-header">
+    <a href="#stop_worker_process/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">stop_worker_process(pid)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Stops a worker process started with <a href="#spawn_worker_process/2"><code class="inline">spawn_worker_process/2</code></a> or <a href="#spawn_link_worker_process/2"><code class="inline">spawn_link_worker_process/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="transformer/4">
+
+  <div class="detail-header">
+    <a href="#transformer/4" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">transformer(target, method, url, options)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L4" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="usage/1">
+
+  <div class="detail-header">
+    <a href="#usage/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">usage(this)</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L304" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Check your monthly requests.</p><h2 id="usage/1-parameters" class="section-heading">
+  <a href="#usage/1-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a>
+  Parameters
+</h2>
+<ul><li><code class="inline">this</code>  - Tomba</li></ul><p>  ## Examples</p><pre><code class="ex">{:ok, result} = Tomba.usage(Tomba)
+</code></pre>
+  </section>
+</section>
+<section class="detail" id="usage_path/0">
+
+  <div class="detail-header">
+    <a href="#usage_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">usage_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L35" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="verifier_path/0">
+
+  <div class="detail-header">
+    <a href="#verifier_path/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">verifier_path()</h1>
+
+      <a href="https://github.com/tomba-io/elixir/blob/main/lib/tomba.ex#L59" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+      <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/tomba/0.1.0" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/tomba/0.1.0" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/tomba/0.1.0/show/lib/tomba.ex">(current file)</a>
+
+            </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.0) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
