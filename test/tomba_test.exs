@@ -1,33 +1,28 @@
 defmodule TombaTest do
-  use ExUnit.Case
-  doctest Tomba
+  use ExUnit.Case, async: true
 
-  test "test baseUrl" do
-    key = "ta_5c8610a2d48c8e5ab9d010f01cad0fcab0000"
-    secret = "ts_00000000-7288-4e78-a52a-6262acd056e9"
-    conf = Tomba.new(key, secret)
-    assert conf.baseUrl == "https://api.tomba.io/v1/"
-  end
+  describe "client/2" do
+    test "creates a client with default options" do
+      client = Tomba.client("ta_xxxx", "ts_xxxx")
+      assert %Tomba.Client{} = client
+      assert client.key == "ta_xxxx"
+      assert client.secret == "ts_xxxx"
+      assert client.base_url == "https://api.tomba.io/v1"
+      assert client.timeout == 120_000
+    end
 
-  test "tomba init" do
-    key = "ta_5c8610a2d48c8e5ab9d010f01cad0fcab0000"
-    secret = "ts_00000000-7288-4e78-a52a-6262acd056e9"
-    conf = Tomba.new(key, secret)
-    assert conf.key == key
-    assert conf.secret == secret
-  end
-  test "test Tomba credentials" do
-    assert_raise RuntimeError, "Invalid Tomba credentials", fn ->
-      conf = Tomba.new("aaaa", "aaaa")
-      assert conf.key == "aaaa"
+    test "creates a client with custom options" do
+      client =
+        Tomba.client("ta_xxxx", "ts_xxxx", base_url: "https://custom.api.com/v1", timeout: 60_000)
+
+      assert client.base_url == "https://custom.api.com/v1"
+      assert client.timeout == 60_000
     end
   end
-  test "test Domain Exception" do
-    assert_raise RuntimeError, "Invalid Domain name", fn ->
-      key = "ta_5c8610a2d48c8e5ab9d010f01cad0fcab0000"
-      secret = "ts_00000000-7288-4e78-a52a-6262acd056e9"
-      conf = Tomba.new(key, secret)
-      Tomba.domain_search(conf, "aaaa")
+
+  describe "default_base_url/0" do
+    test "returns the default API base URL" do
+      assert Tomba.default_base_url() == "https://api.tomba.io/v1"
     end
   end
 end

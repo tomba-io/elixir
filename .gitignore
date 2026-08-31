@@ -24,3 +24,13 @@ tomba-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Environment variables
+.env
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

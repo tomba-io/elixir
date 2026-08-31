@@ -1,326 +1,68 @@
 defmodule Tomba do
-  alias Validation.Domainvalidation
-  alias Validation.Keyvalidation
-  use HTTPotion.Base
-
   @moduledoc """
-  Documentation for `Tomba`.
+  Official Elixir client library for the Tomba Email Finder API.
 
-  Tomba: Tomba.io is an Email Finder for B2B sales and email marketing
-  This is the Lua client library for the [Email Finder](https://tomba.io) API.
-  It allows you to lookup the following details :
-    - [Domain Search](https://tomba.io/domain-search) (Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.)
-    - [Email Finder](https://tomba.io/email-finder) (This API endpoint generates or retrieves the most likely email address from a domain name, a first name and a last name..)
-    - [Email Verifier](https://tomba.io/email-verifier) (checks the deliverability of a given email address, verifies if it has been found in our database, and returns their sources.)
-    - [Email Enrichment.](https://tomba.io/enrichment) (Locate and include data in your emails.)
-    - [Author Finder.](https://tomba.io/author-finder) (Instantly discover the email addresses of article authors.)
-    - [LinkedIn Finder.](https://tomba.io/linkedin-finder) (Instantly discover the email addresses of Linkedin URLs.)
+  Tomba.io is an Email Finder for B2B sales and email marketing. This library
+  provides access to the [Tomba API](https://docs.tomba.io/api/introduction),
+  allowing you to:
+
+    * [Domain Search](https://tomba.io/domain-search) - Search emails based on a domain name
+    * [Email Finder](https://tomba.io/email-finder) - Generate or retrieve the most likely email address
+    * [Email Verifier](https://tomba.io/email-verifier) - Check the deliverability of an email address
+    * [Email Enrichment](https://tomba.io/enrichment) - Locate and include data in your emails
+    * [Author Finder](https://tomba.io/author-finder) - Discover email addresses of article authors
+    * [LinkedIn Finder](https://tomba.io/linkedin-finder) - Discover email addresses from LinkedIn profiles
+    * [Phone Finder](https://tomba.io/phone-finder) - Find phone numbers associated with emails
+
+  ## Getting Started
+
+  Create a client with your API credentials:
+
+      client = Tomba.client("ta_xxxx", "ts_xxxx")
+
+  Then use it with any service module:
+
+      {:ok, result} = Tomba.Account.account(client)
+      {:ok, result} = Tomba.Domain.domain_search(client, %{"domain" => "tomba.io"})
+      {:ok, result} = Tomba.Finder.email_finder(client, %{"domain" => "stripe.com", "first_name" => "John", "last_name" => "Doe"})
+
+  ## Authentication
+
+  You'll need a Tomba API access token. Sign up for a free account at
+  [https://app.tomba.io/auth/register](https://app.tomba.io/auth/register).
+
+  See [Authentication](https://docs.tomba.io/api/authentication) for details.
   """
 
-  # DEFAULT BASE URL
+  @type client :: Tomba.Client.t()
 
-  @default_base_url "https://api.tomba.io/v1/"
+  @default_base_url "https://api.tomba.io/v1"
 
+  @doc """
+  Creates a new Tomba API client.
+
+  ## Parameters
+
+    * `key` - Your Tomba API key (starts with "ta_").
+    * `secret` - Your Tomba API secret (starts with "ts_").
+    * `opts` - Optional keyword list:
+      * `:base_url` - Custom API base URL (default: `#{@default_base_url}`).
+      * `:timeout` - Request timeout in milliseconds (default: 120_000).
+
+  ## Examples
+
+      client = Tomba.client("ta_xxxx", "ts_xxxx")
+      client = Tomba.client("ta_xxxx", "ts_xxxx", base_url: "https://custom.api.com/v1")
+
+  """
+  @spec client(String.t(), String.t(), keyword()) :: client()
+  def client(key, secret, opts \\ []) do
+    Tomba.Client.new(key, secret, opts)
+  end
+
+  @doc """
+  Returns the default API base URL.
+  """
+  @spec default_base_url() :: String.t()
   def default_base_url, do: @default_base_url
-
-  # Account path
-
-  @account_path "/me"
-
-  def account_path, do: @account_path
-
-  # Usage path
-
-  @usage_path "/usage"
-
-  def usage_path, do: @usage_path
-
-  # Logs path
-
-  @logs_path "/logs"
-
-  def logs_path, do: @logs_path
-
-  # Search path
-
-  @search_path "/domain-search"
-
-  def search_path, do: @search_path
-
-  # Finder path
-
-  @finder_path "/email-finder"
-
-  def finder_path, do: @finder_path
-
-  # Verifier path
-
-  @verifier_path "/email-verifier"
-
-  def verifier_path, do: @verifier_path
-
-  # Email Sources path
-
-  @sources_path "/email-sources"
-
-  def sources_path, do: @sources_path
-
-  # Email Count path
-
-  @count_path "/email-count"
-
-  def count_path, do: @count_path
-
-  # Domain status path
-
-  @status_path "/domain-status"
-
-  def status_path, do: @status_path
-
-  # Autocomplete path
-
-  @autocomplete_path "/domains-suggestion"
-
-  def autocomplete_path, do: @autocomplete_path
-
-  defstruct key: "",
-            secret: "",
-            baseUrl: ""
-
-  @doc """
-  Tomba Constructor
-
-  ## Parameters
-
-    * `key` -  Tomba api key.
-    * `secret` - Tomba secret key.
-  """
-  def new(key, secret) do
-    Keyvalidation.validate(key)
-    Keyvalidation.validate(secret)
-    %Tomba{
-      key: key,
-      secret: secret,
-      baseUrl: @default_base_url
-    }
-  end
-
-  @doc """
-  call to server
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `path`  - A string specific path.
-    * `params`- query params
-  """
-  def call(this, path, params) do
-    header = [
-      "User-Agent": "Tomba elixir-client",
-      "Content-Type": "application/json",
-      "X-Tomba-Key": this.key,
-      "X-Tomba-Secret": this.secret
-    ]
-
-    req = HTTPotion.get(this.baseUrl <> path, query: params, headers: header)
-
-    if req.status_code != 200 do
-      {:error, Jason.decode!(req.error, keys: :atoms)}
-    else
-      {:ok, Jason.decode!(req.body, keys: :atoms)}
-    end
-  end
-
-  @doc """
-  Returns information about the current account.
-
-  ## Parameters
-
-    * `this`  - Tomba
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.account(Tomba)
-
-  ```
-  """
-  def account(this) do
-    call(this, @account_path, nil)
-  end
-
-  @doc """
-  Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `domain`  - A string specific domain.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.domain_search(Tomba,"tomba.io")
-
-  ```
-  """
-  def domain_search(this, domain) do
-    Domainvalidation.validate(domain)
-    call(this, @search_path, %{"domain" => domain})
-  end
-
-  @doc """
-  Returns total email addresses we have for one domain.
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `domain`  - A string specific domain.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.count(Tomba,"tomba.io")
-
-  ```
-  """
-  def count(this, domain) do
-    Domainvalidation.validate(domain)
-    call(this, @count_path, %{"domain" => domain})
-  end
-
-  @doc """
-  Returns domain status if is webmail or disposable.
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `domain`  - A string specific path.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.status(Tomba,"gmail.com")
-
-  ```
-  """
-  def status(this, domain) do
-    Domainvalidation.validate(domain)
-    call(this, @status_path, %{"domain" => domain})
-  end
-
-  @doc """
-  Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `query`  - A string name company or website.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.autocomplete(Tomba,"google")
-
-  ```
-  """
-  def autocomplete(this, query) do
-    call(this, @autocomplete_path, %{"query" => query})
-  end
-
-  @doc """
-  Generates or retrieves the most likely email address from a domain name, a first name and a last name.
-
-  ## Parameters
-
-    * `this`  - Tomba
-    * `domain` -   A string domain name of the company, used for emails. For example, "tomba.com".
-    * `fname`  -  A string The person's first name. It doesn't need to be in lowercase.
-    * `lname`  -  A string The person's last name. It doesn't need to be in lowercase.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.email_finder(Tomba,"stripe.com", "fname", "lname")
-
-  ```
-  """
-  def email_finder(this, domain, fname, lname) do
-    Domainvalidation.validate(domain)
-    call(this, @finder_path, %{"domain" => domain, "fisrt_name" => fname, "last_name" => lname})
-  end
-
-  @doc """
-  Verify the deliverability of an email address.
-
-  ## Parameters
-
-    * `this`   - Tomba
-    * `email`  - A string email address you want to verify.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.email_verifier(Tomba,"b.mohamed@tomba.io")
-
-  ```
-  """
-  def email_verifier(this, email) do
-    call(this, @verifier_path <> email, nil)
-  end
-
-  @doc """
-  Find email address source somewhere on the web.
-
-  ## Parameters
-
-    * `this`   - Tomba
-    * `email`  - A string email address you want to find sources.
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.email_sources(Tomba,"b.mohamed@tomba.io")
-
-  ```
-  """
-  def email_sources(this, email) do
-    call(this, @sources_path <> email, nil)
-  end
-
-  @doc """
-  Check your monthly requests.
-
-  ## Parameters
-
-    * `this`  - Tomba
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.usage(Tomba)
-
-  ```
-  """
-  def usage(this) do
-    call(this, @usage_path, nil)
-  end
-
-  @doc """
-  Returns a your last 1,000 requests you made during the last 3 months.
-
-  ## Parameters
-
-    * `this`  - Tomba
-
-    ## Examples
-
-  ```ex
-  {:ok, result} = Tomba.logs(Tomba)
-
-  ```
-  """
-  def logs(this) do
-    call(this, @logs_path, nil)
-  end
 end
