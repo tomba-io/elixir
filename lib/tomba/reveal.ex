@@ -2,7 +2,7 @@ defmodule Tomba.Reveal do
   @moduledoc """
   Reveal API for Tomba.
 
-  Search companies using reverse lookup (e.g., by IP address).
+  Search companies using reverse lookup.
 
   See [Reveal API](https://docs.tomba.io/api/reveal) for details.
   """

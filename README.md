@@ -247,12 +247,12 @@ Get combined person and company data from an email address (Clearbit-compatible)
 {:ok, result} = Tomba.Enrichment.combined(client, %{"email" => "john@example.com"})
 ```
 
-### Reveal (Companies Search)
+### Companies Search (Reveal)
 
-Search companies using reverse lookup (e.g., by IP address).
+Search companies using natural language queries or structured filters (location, industry, size, technologies, and more).
 
 ```elixir
-{:ok, result} = Tomba.Reveal.companies_search(client, %{"ip" => "1.2.3.4"})
+{:ok, result} = Tomba.Reveal.companies_search(client, %{"query" => "Real Estate in Europe", "page" => 1})
 ```
 
 ### Usage
