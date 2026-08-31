@@ -3,8 +3,8 @@ defmodule Tomba.ClientTest do
 
   alias Tomba.Client
 
-  @key "ta_5c8610a2d48c8e5ab9d010f01cad0fcab0000"
-  @secret "ts_00000000-7288-4e78-a52a-6262acd056e9"
+  @key System.get_env("TOMBA_API_KEY") || "ta_placeholder_key_for_unit_testing_only_x"
+  @secret System.get_env("TOMBA_SECRET_KEY") || "ts_placeholder-0000-0000-0000-0000000000"
 
   describe "new/3" do
     test "creates a client struct with defaults" do

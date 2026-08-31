@@ -56,3 +56,6 @@ jobs:
 
       - name: Run tests
         run: mix test
+        env:
+          TOMBA_API_KEY: ${{ secrets.TOMBA_API_KEY }}
+          TOMBA_SECRET_KEY: ${{ secrets.TOMBA_SECRET_KEY }}
