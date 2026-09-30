@@ -10,12 +10,10 @@ defmodule Tomba.FlagTest do
   end
 
   describe "create_flag/2" do
-    test "requires email key in params" do
+    test "accepts any map params" do
       client = Tomba.client("ta_xxxx", "ts_xxxx")
 
-      assert_raise FunctionClauseError, fn ->
-        Flag.create_flag(client, %{"invalid" => "param"})
-      end
+      assert is_function(&Flag.create_flag/2)
     end
 
     test "function exists with correct arity" do

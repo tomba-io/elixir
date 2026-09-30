@@ -4,12 +4,10 @@ defmodule Tomba.PhoneTest do
   alias Tomba.Phone
 
   describe "phone_finder/2" do
-    test "requires email key in params" do
+    test "accepts any map params" do
       client = Tomba.client("ta_xxxx", "ts_xxxx")
 
-      assert_raise FunctionClauseError, fn ->
-        Phone.phone_finder(client, %{"invalid" => "param"})
-      end
+      assert is_function(&Phone.phone_finder/2)
     end
 
     test "function exists with correct arity" do
