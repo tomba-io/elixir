@@ -11,7 +11,7 @@ defmodule Tomba.FlagTest do
 
   describe "create_flag/2" do
     test "accepts any map params" do
-      client = Tomba.client("ta_xxxx", "ts_xxxx")
+      _client = Tomba.client("ta_xxxx", "ts_xxxx")
 
       assert is_function(&Flag.create_flag/2)
     end

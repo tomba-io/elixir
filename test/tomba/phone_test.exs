@@ -5,7 +5,7 @@ defmodule Tomba.PhoneTest do
 
   describe "phone_finder/2" do
     test "accepts any map params" do
-      client = Tomba.client("ta_xxxx", "ts_xxxx")
+      _client = Tomba.client("ta_xxxx", "ts_xxxx")
 
       assert is_function(&Phone.phone_finder/2)
     end

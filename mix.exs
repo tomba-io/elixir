@@ -1,7 +1,7 @@
 defmodule Tomba.MixProject do
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.1.1"
   @source_url "https://github.com/tomba-io/elixir"
 
   def project do
