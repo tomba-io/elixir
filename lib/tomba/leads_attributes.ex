@@ -26,7 +26,7 @@ defmodule Tomba.LeadsAttributes do
   """
   @spec list(Client.t()) :: {:ok, map()} | {:error, Tomba.Error.t()}
   def list(%Client{} = client) do
-    Client.get(client, "/leads/attributes")
+    Client.get(client, "/attributes")
   end
 
   @doc """
@@ -47,7 +47,7 @@ defmodule Tomba.LeadsAttributes do
   """
   @spec get(Client.t(), String.t()) :: {:ok, map()} | {:error, Tomba.Error.t()}
   def get(%Client{} = client, id) do
-    Client.get(client, "/leads/attributes/#{id}")
+    Client.get(client, "/attributes/#{id}")
   end
 
   @doc """
@@ -68,7 +68,7 @@ defmodule Tomba.LeadsAttributes do
   """
   @spec create(Client.t(), map()) :: {:ok, map()} | {:error, Tomba.Error.t()}
   def create(%Client{} = client, params) do
-    Client.post(client, "/leads/attributes", params)
+    Client.post(client, "/attributes", params)
   end
 
   @doc """
@@ -90,7 +90,7 @@ defmodule Tomba.LeadsAttributes do
   """
   @spec update(Client.t(), String.t(), map()) :: {:ok, map()} | {:error, Tomba.Error.t()}
   def update(%Client{} = client, id, params) do
-    Client.put(client, "/leads/attributes/#{id}", params)
+    Client.put(client, "/attributes/#{id}", params)
   end
 
   @doc """
@@ -111,6 +111,6 @@ defmodule Tomba.LeadsAttributes do
   """
   @spec delete(Client.t(), String.t()) :: {:ok, map()} | {:error, Tomba.Error.t()}
   def delete(%Client{} = client, id) do
-    Client.delete(client, "/leads/attributes/#{id}")
+    Client.delete(client, "/attributes/#{id}")
   end
 end

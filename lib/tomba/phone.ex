@@ -10,15 +10,17 @@ defmodule Tomba.Phone do
   alias Tomba.Client
 
   @doc """
-  Find the phone number associated with an email address.
+  Find the phone number associated with an email address, domain, or LinkedIn URL.
 
   See [Phone Finder](https://docs.tomba.io/api/phone#phone-finder).
 
   ## Parameters
 
     * `client` - A `Tomba.Client` struct.
-    * `params` - A map with the following keys:
-      * `"email"` (required) - The email address to find a phone number for.
+    * `params` - A map with one of the following keys:
+      * `"email"` - The email address to find a phone number for.
+      * `"domain"` - The domain to search.
+      * `"url"` - A LinkedIn profile URL.
       * `"webhook_url"` (optional) - Webhook URL for async results.
 
   ## Examples
@@ -26,9 +28,15 @@ defmodule Tomba.Phone do
       iex> Tomba.Phone.phone_finder(client, %{"email" => "john@example.com"})
       {:ok, %{"data" => %{"phone" => "+1234567890", ...}}}
 
+      iex> Tomba.Phone.phone_finder(client, %{"domain" => "example.com"})
+      {:ok, %{"data" => %{"phone" => "+1234567890", ...}}}
+
+      iex> Tomba.Phone.phone_finder(client, %{"url" => "https://linkedin.com/in/johndoe"})
+      {:ok, %{"data" => %{"phone" => "+1234567890", ...}}}
+
   """
   @spec phone_finder(Client.t(), map()) :: {:ok, map()} | {:error, Tomba.Error.t()}
-  def phone_finder(%Client{} = client, %{"email" => _} = params) do
+  def phone_finder(%Client{} = client, params) when is_map(params) do
     Client.get(client, "/phone-finder", params)
   end
 

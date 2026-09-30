@@ -36,7 +36,7 @@ defmodule Tomba.Flag do
   end
 
   @doc """
-  Flag an email address.
+  Flag an email address, domain, IP, URL, or company.
 
   See [Create Flag](https://docs.tomba.io/api/flag#create-flag).
 
@@ -44,17 +44,19 @@ defmodule Tomba.Flag do
 
     * `client` - A `Tomba.Client` struct.
     * `params` - A map with the following keys:
-      * `"email"` (required) - The email address to flag.
-      * `"reason"` (optional) - Reason for flagging.
+      * `"flag_type"` (required) - One of "email", "domain", "ip", "url", "company".
+      * `"value"` (required) - The value to flag.
+      * `"reason"` (required) - The reason for flagging.
+      * `"comment"` (optional) - Additional context.
 
   ## Examples
 
-      iex> Tomba.Flag.create_flag(client, %{"email" => "spam@example.com", "reason" => "Invalid"})
+      iex> Tomba.Flag.create_flag(client, %{"flag_type" => "email", "value" => "spam@example.com", "reason" => "Invalid"})
       {:ok, %{}}
 
   """
   @spec create_flag(Client.t(), map()) :: {:ok, map()} | {:error, Tomba.Error.t()}
-  def create_flag(%Client{} = client, %{"email" => _} = params) do
+  def create_flag(%Client{} = client, params) when is_map(params) do
     Client.post(client, "/flag", params)
   end
 end
