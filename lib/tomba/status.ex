@@ -12,7 +12,7 @@ defmodule Tomba.Status do
   @doc """
   Get the status of a domain (webmail, disposable, etc.).
 
-  See [Domain Status](https://docs.tomba.io/api/domain#domain-status#domain-status).
+  See [Domain Status](https://docs.tomba.io/api/domain#domain-status).
 
   ## Parameters
 
@@ -34,7 +34,7 @@ defmodule Tomba.Status do
   @doc """
   Get company autocomplete suggestions.
 
-  See [Domain Suggestions](https://docs.tomba.io/api/domain#domain-status#company-autocomplete).
+  See [Domain Suggestions](https://docs.tomba.io/api/domain-suggestions#get-domain-suggestions).
 
   ## Parameters
 
